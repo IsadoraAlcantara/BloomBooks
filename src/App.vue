@@ -6,15 +6,18 @@ import Magnify from 'vue-material-design-icons/Magnify.vue'
   <header>
     <nav>
       <img class="logo-nav" src="https://i.ibb.co/x50HT3f/logo-nav.png" alt="logo-nav" />
-      <ul class="botoes-nav">
-        <li @click="$router.push('/LivrosView')"><a> Livros</a></li>
-        <li @click="$router.push('/AutoresView')"><a> Autores</a></li>
-        <li @click="$router.push('/GeneroView')"><a> Gênero</a></li>
-        <li @click="$router.push('/CategoriasView')"><a> Categorias</a></li>
-      </ul>
-      <div class="botao-pesquisa"><magnify size="20" class="pesquisa-icon" /></div>
+      <div class="botoes-nav">
+        <RouterLink to="/"> Início</RouterLink>
+        <RouterLink to="/livros"> Livros</RouterLink>
+        <RouterLink to="/autores"> Autores</RouterLink>
+        <RouterLink to="/generos"> Gênero</RouterLink>
+        <RouterLink to="/categorias"> Categorias</RouterLink>
+      </div>
+      <div class="botao-pesquisa"><magnify size="28" class="pesquisa-icon" /></div>
     </nav>
   </header>
+
+  <RouterView/>  
 </template>
 
 <style scoped>
@@ -27,6 +30,7 @@ nav {
   height: 8vh;
   justify-content: space-between;
 }
+
 .botoes-nav {
   list-style: none;
   display: flex;
@@ -42,6 +46,11 @@ nav {
 }
 .logo-nav {
   height: 6vh;
+}
+
+a {
+  text-decoration: none;
+  color:#FAF6F3;
   
 }
 .botao-pesquisa {

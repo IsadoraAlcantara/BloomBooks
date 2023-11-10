@@ -17,17 +17,14 @@ const routes = [
     component: () => import('../views/AutoresView.vue')
   },
   {
-    path: '/genero',
-    name: 'genero',
+    path: '/generos',
+    name: 'generos',
     component: () => import('../views/GeneroView.vue')
   },
   {
-    path: '/categoria',
-    name: 'categoria',
-    component: () => import('../views/CategoriaView.vue'),
-    meta: {
-      requiresAuth: true // Definindo que a rota requer autenticação
-    }
+    path: '/categorias',
+    name: 'categorias',
+    component: () => import('../views/CategoriasView.vue')
   },
  
 ]
