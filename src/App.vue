@@ -1,5 +1,30 @@
 <script setup>
 import Magnify from 'vue-material-design-icons/Magnify.vue'
+import { ref, onMounted } from 'vue';
+
+const images = ref([
+    'https://i.pinimg.com/564x/81/b4/1b/81b41bf0249a52da787cb0b26f08214d.jpg',
+    'https://i.pinimg.com/564x/db/db/0f/dbdb0f73f16b2b7579e7189d30d4568b.jpg',
+    'https://i.pinimg.com/564x/fa/95/f4/fa95f40d078d5e444348f631a25f24f6.jpg',
+    'https://i.pinimg.com/564x/ce/a6/82/cea68267c3294713623da43dbf9aea7b.jpg',
+
+]);
+
+const currentIndex = ref(0);
+
+const goToSlide = (index) => {
+    currentIndex.value = index++;
+};
+
+const nextSlide = () => {
+    currentIndex.value = currentIndex.value === images.value.length - 1 ? 0 : currentIndex.value + 1
+}
+
+onMounted(() => {
+    setInterval(() => {
+        nextSlide()
+    }, 2000)
+})
 </script>
 
 <template>
@@ -18,6 +43,22 @@ import Magnify from 'vue-material-design-icons/Magnify.vue'
   </header>
 
   <RouterView/>  
+  <div class="LadoForm">
+   
+        <div class="Carrossel">
+            <div class="Slide" v-for="(image, index) in images" :key="index" :class="{ active: index === currentIndex }">
+                <img class="ImgC" :src="image" alt="Carrossel Image">
+               
+            </div>
+           
+            <div class="Indicators">
+                <span v-for="(image, index) in images" :key="index" class="indicator"
+                    :class="{ active: index === currentIndex }" @click="goToSlide(index)"></span>
+            </div>
+        </div>
+
+
+    </div>
 </template>
 
 <style scoped>
@@ -29,6 +70,7 @@ nav {
   margin-top: 3vh;
   height: 8vh;
   justify-content: space-between;
+  align-items: center;
 }
 
 .botoes-nav {
@@ -61,5 +103,65 @@ a {
   color: white;
   padding: .8vw 0 0 .8vw;
 }
+
+
+.Carrossel {
+    position: relative;
+    width: 97vw;
+    height: 80vh;
+    overflow: hidden;
+    margin: 60px 70px 90px 24px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+ 
+}
+
+.Slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    
+}
+
+.Slide.active {
+    opacity: 1;
+}
+
+.ImgC {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3vh ;
+}
+
+.Indicators {
+    position: absolute;
+    align-items: center;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #BF5A5A;
+    cursor: pointer;
+}
+
+.indicator.active {
+    background-color: #F2E8DF;
+    width: 13px;
+    height: 13px;
+}
+
 
 </style>
