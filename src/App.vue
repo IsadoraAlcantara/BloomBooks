@@ -1,7 +1,7 @@
 <script setup>
 import Magnify from 'vue-material-design-icons/Magnify.vue'
 import { ref, onMounted } from 'vue';
- 
+
 
 const images = ref([
   'https://i.pinimg.com/564x/81/b4/1b/81b41bf0249a52da787cb0b26f08214d.jpg',
@@ -26,6 +26,11 @@ onMounted(() => {
     nextSlide()
   }, 2000)
 })
+
+
+
+  
+
 </script>
 
 <template>
@@ -57,14 +62,17 @@ onMounted(() => {
         <p> BloomBooks</p>
       </div>
 
-        <div class="botao-pesquisa2">
-          <button v-on:click="searchFunction" class="search-button">botao</button>
-    <input type="text" v-model="search" placeholder="Digite sua pesquisa" class="search-bar"/>
+      <div class="search">
+    <div class="search-bar">
+      <input type="text" v-model="search"  placeholder="Find Something..."  class="search-input"/>
+      <magnify size="22" class="search-button" />
+    </div>
    
   </div>
 
 
-     
+
+
       <div class="Indicators">
         <span v-for="(image, index) in images" :key="index" class="indicator" :class="{ active: index === currentIndex }"
           @click="goToSlide(index)"></span>
@@ -76,42 +84,57 @@ onMounted(() => {
 </template>
 
 <style scoped>
-
-.search-bar, .search-button {
-  border-radius: 25px;
- text-align: center;
- justify-content: center;
- display: flex;
- margin-top: 150px;
-}
-
+  input::placeholder{
+    color: #ffffff;
+  }
+  .search{
+    margin-right: 400px;
+  }
 .search-bar {
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
   padding: 10px;
-  margin-right: 10px;
-  margin-left: 110px;
-  position: absolute;
-}
+  margin-top: 100px;
 
-.search-button {
-  padding: 10px 20px;
-  background-color: #BF5A5A;
-  color: white;
-  cursor: pointer;
+  border: 1px solid white;
   position: absolute;
- 
+  text-decoration: none;
  
  
   
 }
 
-.search-button:hover {
-  background-color: #bb6969;
-  position: absolute;
+.search-input {
+  flex-grow: 1;
+  margin-left: 30px;
+  margin-right: 180px;
+ font-family: poppins, ;
+  background-color: transparent;
+ 
+ 
 }
+
+.search-button {
+  border-radius: 25px;
+  color:#ffffff ;
+  cursor: pointer;
+  position: absolute;
+  text-decoration: none;
+  margin-top: 5px;
+ 
+ 
+
+}
+
+
+
+
+
 
 .titulo {
   color: #BF5A5A;
-  font-family:  'Pinyon Script', cursive;
+  font-family: 'Pinyon Script', cursive;
   font-size: 200px;
   font-style: normal;
   font-weight: 400;
@@ -220,4 +243,5 @@ a {
   background-color: #F2E8DF;
   width: 13px;
   height: 13px;
-}</style>
+}
+</style>
