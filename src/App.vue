@@ -1,5 +1,6 @@
 <script setup>
 import Magnify from 'vue-material-design-icons/Magnify.vue'
+import ArrowRight from 'vue-material-design-icons/ArrowRight.vue'
 import { ref, onMounted } from 'vue';
 
 
@@ -25,11 +26,8 @@ onMounted(() => {
   setInterval(() => {
     nextSlide()
   }, 2000)
-})
+});
 
-
-
-  
 
 </script>
 
@@ -73,17 +71,120 @@ onMounted(() => {
 
 
 
-      <div class="Indicators">
+  <div class="Indicators">
         <span v-for="(image, index) in images" :key="index" class="indicator" :class="{ active: index === currentIndex }"
           @click="goToSlide(index)"></span>
       </div>
+      <div class="Indicators2">
+        <span v-for="(image, index) in images" :key="index" class="indicator2" :class="{ active: index === currentIndex }"
+          @click="goToSlide(index)"></span>
+      </div>
+      <arrow-right size="32" class="arrow-icon" />
     </div>
 
 
   </div>
+
+  <div class="book-card">
+    <div class="book-cover">
+      <img class="img-card" src="https://i.pinimg.com/564x/81/b4/1b/81b41bf0249a52da787cb0b26f08214d.jpg" alt="Capa do livro" />
+    </div>
+    <div class="book-info">
+      <h2 class="book-title">Trono de vidro</h2>
+      <p class="book-author">Autor do livro</p>
+      <div class="book-rating">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">☆</span>
+        <span class="star">☆</span>
+      </div>
+      <p class="book-date">Data de publicação</p>
+    </div>
+  </div>
+
+  <div class="book-card">
+    <div class="book-cover">
+      <img class="img-card" src="https://i.pinimg.com/564x/81/b4/1b/81b41bf0249a52da787cb0b26f08214d.jpg" alt="Capa do livro" />
+    </div>
+    <div class="book-info">
+      <h2 class="book-title">Trono de vidro</h2>
+      <p class="book-author">Autor do livro</p>
+      <div class="book-rating">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">☆</span>
+        <span class="star">☆</span>
+      </div>
+      <p class="book-date">Data de publicação</p>
+    </div>
+  </div>
+
+
+  
 </template>
 
 <style scoped>
+
+.img-card{
+  width:448px ;
+  height: 257px;
+  object-fit: cover;
+  
+}
+.book-card {
+  margin: 50px;
+  height: 507px;
+  width: 448px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.book-cover {
+  position: relative;
+}
+.book-info {
+  padding: 10px;
+}
+.book-title {
+  margin-top: 2px;
+  margin-left: 2px;
+  color: #111;
+font-family: Poppins;
+font-size: 22px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+.book-author {
+  
+  margin: 2px;
+  color: #696969;
+
+font-family: Poppins;
+font-size: 22px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.book-rating {
+  margin: 10px 0;
+}
+.star {
+  color: gold;
+}
+
+
+
+.arrow-icon{
+  position:absolute ;
+  color: #F2E8DF;
+  margin-top: 680px;
+  margin-left: 1600px;
+  
+}
   input::placeholder{
     color: #ffffff;
   }
@@ -223,9 +324,9 @@ a {
 
 .Indicators {
   position: absolute;
-  align-items: center;
-  bottom: 10px;
-  left: 50%;
+  margin-right: 1490px;
+  bottom: 50px;
+  
   transform: translateX(-50%);
   display: flex;
   gap: 5px;
@@ -233,15 +334,15 @@ a {
 
 .indicator {
   width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #BF5A5A;
+  height: 5px;
+  border-radius: 25%;
+  background-color: #F2E8DF;
   cursor: pointer;
 }
 
 .indicator.active {
   background-color: #F2E8DF;
-  width: 13px;
-  height: 13px;
+  width: 30px;
+  height: 5px;
 }
 </style>
