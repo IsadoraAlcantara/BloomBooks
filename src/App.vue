@@ -1,7 +1,14 @@
 <script setup>
 import Magnify from 'vue-material-design-icons/Magnify.vue'
 import ArrowRight from 'vue-material-design-icons/ArrowRight.vue'
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
+
+import { useWindowSize } from '@vueuse/core'
+
+const { width } = useWindowSize()
+
+// const size = computed(() => Math.ceil(width.value * 0.015))
+const size = computed(() => width.value > 1400 ? 28 : 20)
 
 
 const images = ref([
@@ -34,7 +41,10 @@ onMounted(() => {
 <template>
   <header>
     <nav>
-      <img class="logo-nav" src="https://i.ibb.co/x50HT3f/logo-nav.png" alt="logo-nav" />
+      <div class="wrap-header">
+        <img class="logo-nav" src="https://i.ibb.co/x50HT3f/logo-nav.png" alt="logo-nav" />
+      </div>
+
       <div class="botoes-nav">
         <RouterLink to="/"> Início</RouterLink>
         <RouterLink to="/livros"> Livros</RouterLink>
@@ -42,8 +52,11 @@ onMounted(() => {
         <RouterLink to="/generos"> Gênero</RouterLink>
         <RouterLink to="/categorias"> Categorias</RouterLink>
       </div>
-      <div class="botao-pesquisa">
-        <magnify size="28" class="pesquisa-icon" />
+
+      <div class="wrap-header right">
+        <div class="botao-pesquisa">
+          <magnify :size="size" class="pesquisa-icon" />
+        </div>
       </div>
     </nav>
   </header>
@@ -61,17 +74,17 @@ onMounted(() => {
       </div>
 
       <div class="search">
-    <div class="search-bar">
-      <input type="text" v-model="search"  placeholder="Find Something..."  class="search-input"/>
-      <magnify size="22" class="search-button" />
-    </div>
-   
-  </div>
+        <div class="search-bar">
+          <input type="text" v-model="search" placeholder="Find Something..." class="search-input" />
+          <magnify size="22" class="search-button" />
+        </div>
+
+      </div>
 
 
 
 
-  <div class="Indicators">
+      <div class="Indicators">
         <span v-for="(image, index) in images" :key="index" class="indicator" :class="{ active: index === currentIndex }"
           @click="goToSlide(index)"></span>
       </div>
@@ -87,7 +100,8 @@ onMounted(() => {
 
   <div class="book-card">
     <div class="book-cover">
-      <img class="img-card" src="https://i.pinimg.com/564x/81/b4/1b/81b41bf0249a52da787cb0b26f08214d.jpg" alt="Capa do livro" />
+      <img class="img-card" src="https://i.pinimg.com/564x/81/b4/1b/81b41bf0249a52da787cb0b26f08214d.jpg"
+        alt="Capa do livro" />
     </div>
     <div class="book-info">
       <h2 class="book-title">Trono de vidro</h2>
@@ -105,7 +119,8 @@ onMounted(() => {
 
   <div class="book-card">
     <div class="book-cover">
-      <img class="img-card" src="https://i.pinimg.com/564x/81/b4/1b/81b41bf0249a52da787cb0b26f08214d.jpg" alt="Capa do livro" />
+      <img class="img-card" src="https://i.pinimg.com/564x/81/b4/1b/81b41bf0249a52da787cb0b26f08214d.jpg"
+        alt="Capa do livro" />
     </div>
     <div class="book-info">
       <h2 class="book-title">Trono de vidro</h2>
@@ -120,19 +135,27 @@ onMounted(() => {
       <p class="book-date">Data de publicação</p>
     </div>
   </div>
-
-
-  
 </template>
 
 <style scoped>
+.wrap-header {
+  width: 10%;
+  display: flex;
+  flex-direction: row;
+}
 
-.img-card{
-  width:448px ;
+
+.wrap-header.right {
+  justify-content: end;
+}
+
+.img-card {
+  width: 448px;
   height: 257px;
   object-fit: cover;
-  
+
 }
+
 .book-card {
   margin: 50px;
   height: 507px;
@@ -140,57 +163,66 @@ onMounted(() => {
   border: 1px solid #ccc;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .book-cover {
   position: relative;
 }
+
 .book-info {
   padding: 10px;
 }
+
 .book-title {
   margin-top: 2px;
   margin-left: 2px;
   color: #111;
-font-family: Poppins;
-font-size: 22px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
+  font-family: Poppins;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
+
 .book-author {
-  
+
   margin: 2px;
   color: #696969;
 
-font-family: Poppins;
-font-size: 22px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+  font-family: Poppins;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
+
 .book-rating {
   margin: 10px 0;
 }
+
 .star {
   color: gold;
 }
 
 
 
-.arrow-icon{
-  position:absolute ;
+.arrow-icon {
+  position: absolute;
   color: #F2E8DF;
   margin-top: 680px;
   margin-left: 1600px;
-  
+
 }
-  input::placeholder{
-    color: #ffffff;
-  }
-  .search{
-    margin-right: 400px;
-  }
+
+input::placeholder {
+  color: #ffffff;
+}
+
+.search {
+  margin-right: 400px;
+}
+
 .search-bar {
   display: flex;
   align-items: center;
@@ -201,30 +233,28 @@ line-height: normal;
   border: 1px solid white;
   position: absolute;
   text-decoration: none;
- 
- 
-  
+
+
+
 }
 
 .search-input {
   flex-grow: 1;
   margin-left: 30px;
   margin-right: 180px;
- font-family: poppins, ;
+  font-family: poppins, ;
   background-color: transparent;
- 
- 
+
+
 }
 
 .search-button {
   border-radius: 25px;
-  color:#ffffff ;
+  color: #ffffff;
   cursor: pointer;
   position: absolute;
   text-decoration: none;
   margin-top: 5px;
- 
- 
 
 }
 
@@ -281,10 +311,14 @@ a {
 .botao-pesquisa {
   background-color: #bf5a5a;
   border-radius: 50%;
-  width: 2.3vw;
-  height: 2.3vw;
+  width: 4vh;
+  height: 4vh;
   color: white;
-  padding: .8vw 0 0 .8vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* padding: 1.3vh 0 0 1.3vh; */
 }
 
 
@@ -326,7 +360,7 @@ a {
   position: absolute;
   margin-right: 1490px;
   bottom: 50px;
-  
+
   transform: translateX(-50%);
   display: flex;
   gap: 5px;
@@ -344,5 +378,4 @@ a {
   background-color: #F2E8DF;
   width: 30px;
   height: 5px;
-}
-</style>
+}</style>
