@@ -1,14 +1,15 @@
 <script setup>
 import Magnify from 'vue-material-design-icons/Magnify.vue'
+import Instagram from 'vue-material-design-icons/Instagram.vue'
 import ArrowRight from 'vue-material-design-icons/ArrowRight.vue'
 import { ref, onMounted, computed } from 'vue';
 
-import { useWindowSize } from '@vueuse/core'
+//import { useWindowSize } from '@vueuse/core'
 
-const { width } = useWindowSize()
+//const { width } = useWindowSize()
 
 // const size = computed(() => Math.ceil(width.value * 0.015))
-const size = computed(() => width.value > 1400 ? 28 : 20)
+//const size = computed(() => width.value > 1400 ? 28 : 20)
 
 
 const images = ref([
@@ -88,60 +89,306 @@ onMounted(() => {
         <span v-for="(image, index) in images" :key="index" class="indicator" :class="{ active: index === currentIndex }"
           @click="goToSlide(index)"></span>
       </div>
-      <div class="Indicators2">
-        <span v-for="(image, index) in images" :key="index" class="indicator2" :class="{ active: index === currentIndex }"
-          @click="goToSlide(index)"></span>
-      </div>
+
       <arrow-right size="32" class="arrow-icon" />
     </div>
 
 
   </div>
+  <div class="title-line">
+    <p class="title-card">Populares</p>
+    <div class="decoration-line"></div>
+  </div>
+  <div class="card-geral">
+    <div class="book-card">
 
-  <div class="book-card">
-    <div class="book-cover">
-      <img class="img-card" src="https://i.pinimg.com/564x/81/b4/1b/81b41bf0249a52da787cb0b26f08214d.jpg"
-        alt="Capa do livro" />
-    </div>
-    <div class="book-info">
-      <h2 class="book-title">Trono de vidro</h2>
-      <p class="book-author">Autor do livro</p>
-      <div class="book-rating">
-        <span class="star">★</span>
-        <span class="star">★</span>
-        <span class="star">★</span>
-        <span class="star">☆</span>
-        <span class="star">☆</span>
+      <div class="book-cover">
+        <img class="img-card" src="https://i.pinimg.com/564x/81/b4/1b/81b41bf0249a52da787cb0b26f08214d.jpg"
+          alt="Capa do livro" />
       </div>
-      <p class="book-date">Data de publicação</p>
+      <div class="book-info">
+        <h2 class="book-title">Trono de vidro</h2>
+        <p class="book-author">Sarah J. Mass</p>
+        <div class="book-rating">
+          <p class="review-star">2 reviews</p>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">☆</span>
+          <span class="star">☆</span>
+        </div>
+        <p class="book-date">22|12|2022</p>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <div class="book-cover">
+        <img class="img-card" src="https://i.pinimg.com/564x/81/b4/1b/81b41bf0249a52da787cb0b26f08214d.jpg"
+          alt="Capa do livro" />
+      </div>
+      <div class="book-info">
+        <h2 class="book-title">Trono de vidro</h2>
+        <p class="book-author">Autor do livro</p>
+        <div class="book-rating">
+          <p class="review-star">2 reviews</p>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">☆</span>
+          <span class="star">☆</span>
+        </div>
+        <p class="book-date">22|12|2022</p>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="book-cover">
+        <img class="img-card" src="https://i.pinimg.com/564x/81/b4/1b/81b41bf0249a52da787cb0b26f08214d.jpg"
+          alt="Capa do livro" />
+      </div>
+      <div class="book-info">
+        <h2 class="book-title">Trono de vidro</h2>
+        <p class="book-author">Autor do livro</p>
+        <div class="book-rating">
+          <p class="review-star">2 reviews</p>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">☆</span>
+          <span class="star">☆</span>
+        </div>
+        <p class="book-date">22|12|2022</p>
+      </div>
+    </div>
+  </div>
+  <div class="title-line">
+    <p class="title-card">Lançamentos</p>
+    <div class="decoration-line"></div>
+  </div>
+  <div class="card-geral">
+    <div class="book-card">
+
+      <div class="book-cover">
+        <img class="img-card" src="https://i.pinimg.com/564x/81/b4/1b/81b41bf0249a52da787cb0b26f08214d.jpg"
+          alt="Capa do livro" />
+      </div>
+      <div class="book-info">
+        <h2 class="book-title">Trono de vidro</h2>
+        <p class="book-author">Sarah J. Mass</p>
+        <div class="book-rating">
+          <p class="review-star">2 reviews</p>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">☆</span>
+          <span class="star">☆</span>
+        </div>
+        <p class="book-date">22|12|2022</p>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <div class="book-cover">
+        <img class="img-card" src="https://i.pinimg.com/564x/81/b4/1b/81b41bf0249a52da787cb0b26f08214d.jpg"
+          alt="Capa do livro" />
+      </div>
+      <div class="book-info">
+        <h2 class="book-title">Trono de vidro</h2>
+        <p class="book-author">Autor do livro</p>
+        <div class="book-rating">
+          <p class="review-star">2 reviews</p>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">☆</span>
+          <span class="star">☆</span>
+        </div>
+        <p class="book-date">22|12|2022</p>
+      </div>
+    </div>
+    <div class="book-card">
+      <div class="book-cover">
+        <img class="img-card" src="https://i.pinimg.com/564x/81/b4/1b/81b41bf0249a52da787cb0b26f08214d.jpg"
+          alt="Capa do livro" />
+      </div>
+      <div class="book-info">
+        <h2 class="book-title">Trono de vidro</h2>
+        <p class="book-author">Autor do livro</p>
+        <div class="book-rating">
+          <p class="review-star">2 reviews</p>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">★</span>
+          <span class="star">☆</span>
+          <span class="star">☆</span>
+        </div>
+        <p class="book-date">22|12|2022</p>
+      </div>
     </div>
   </div>
 
-  <div class="book-card">
-    <div class="book-cover">
-      <img class="img-card" src="https://i.pinimg.com/564x/81/b4/1b/81b41bf0249a52da787cb0b26f08214d.jpg"
-        alt="Capa do livro" />
+  <div class="footer">
+    <div class="logo">
+      <img class="logo-footer" size="25" src="https://i.ibb.co/x50HT3f/logo-nav.png" />
+      <p class="frase-footer">Fique por dentro de todas as novidades </p>
+      <p class="frase-footer2">literárias aqui, livros e autores de qualidade.</p>
     </div>
-    <div class="book-info">
-      <h2 class="book-title">Trono de vidro</h2>
-      <p class="book-author">Autor do livro</p>
-      <div class="book-rating">
-        <span class="star">★</span>
-        <span class="star">★</span>
-        <span class="star">★</span>
-        <span class="star">☆</span>
-        <span class="star">☆</span>
-      </div>
-      <p class="book-date">Data de publicação</p>
+    <div class="social-icons">
+      <instagram size="22" class="search-button" />
+      <magnify size="22" class="search-button" />
+      <magnify size="22" class="search-button" />
+      <magnify size="22" class="search-button" />
+    </div>
+    <div class="decoration-line-footer"></div>
+    <div class="nav-links">
+      <RouterLink to="/"> Início   </RouterLink>
+      <RouterLink to="/livros"> Livros  </RouterLink>
+      <RouterLink to="/autores"> Autores </RouterLink>
+      <RouterLink to="/generos"> Gênero </RouterLink>
+      <RouterLink to="/categorias"> Categorias</RouterLink>
+
+
     </div>
   </div>
 </template>
 
 <style scoped>
+
+.frase-footer {
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.50);
+
+  text-align: center;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.frase-footer2 {
+ 
+  color: rgba(255, 255, 255, 0.50);
+
+  text-align: center;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  margin-bottom:40px;
+}
+
+
+.footer {
+  margin-top:100px;
+  background-color: #BF5A5A;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.logo {
+  margin: 20px;
+
+}
+
+.logo-footer {
+  width: 183.389px;
+  height: 65px;
+  margin-top:20px;
+
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+ margin-bottom:80px;
+  padding-top: 10px;
+  display: inline-flex;
+align-items: flex-start;
+gap: 100px;
+color: #FFF;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+ margin-bottom:30px;
+  padding-top: 10px;
+  display: inline-flex;
+align-items: flex-start;
+gap: 100px;
+color: #FFF;
+
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; 
+}
+
+.decoration-line {
+  width: 842.087px;
+  height: 1px;
+  flex-grow: 1;
+  background: #BF5A5A;
+  margin-left: 60px;
+  margin-top: 24px;
+
+}
+.decoration-line-footer {
+  width: 5000px;
+  margin-bottom:20px;
+  height: 1px;
+  flex-grow: 1;
+  background: #ffffff;
+ 
+ 
+
+}
+
+.title-line {
+  display: flex;
+
+
+}
+
+.title-card {
+  margin-left: 56px;
+  color: #BF5A5A;
+  margin-bottom: 10px;
+  font-family: Poppins;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.review-star {
+  color: #696969;
+
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  margin-left: 155px;
+  margin-top: 19px;
+
+}
+
 .wrap-header {
   width: 10%;
   display: flex;
   flex-direction: row;
+}
+
+.card-geral {
+  display: flex;
+  justify-content: space-around;
+
 }
 
 
@@ -160,51 +407,73 @@ onMounted(() => {
   margin: 50px;
   height: 507px;
   width: 448px;
-  border: 1px solid #ccc;
+  border: 1px solid #f1dce0;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+
+
+
 }
 
-.book-cover {
-  position: relative;
-}
 
 .book-info {
   padding: 10px;
 }
 
 .book-title {
-  margin-top: 2px;
-  margin-left: 2px;
+  margin-top: 5px;
+  margin-left: 20px;
+  margin-bottom: 0;
   color: #111;
   font-family: Poppins;
   font-size: 22px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+
 }
 
 .book-author {
 
-  margin: 2px;
+  margin-top: 0;
   color: #696969;
+  margin-left: 20px;
+  font-family: Poppins;
+  font-size: 22px;
+
+}
+
+.book-rating {
+  margin-top: 10px;
+
+  size: 100px;
+  margin-left: 17px;
+}
+
+.star {
+  color: #FFD748;
+  font-size: 35px;
+
+
+
+}
+
+.book-date {
+  color: #000;
 
   font-family: Poppins;
   font-size: 22px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-}
+  display: inline-flex;
+  padding: 12px 13px;
+  align-items: center;
+  gap: 14px;
+  border-radius: 12px;
+  border: 1px solid #ECBAC4;
+  margin-left: 17px;
+  margin-top: 20px;
 
-.book-rating {
-  margin: 10px 0;
 }
-
-.star {
-  color: gold;
-}
-
 
 
 .arrow-icon {
@@ -327,7 +596,7 @@ a {
   width: 97vw;
   height: 80vh;
   overflow: hidden;
-  margin: 60px 70px 90px 24px;
+  margin: 60px 70px 60px 24px;
   align-items: center;
   display: flex;
   justify-content: center;
@@ -378,4 +647,5 @@ a {
   background-color: #F2E8DF;
   width: 30px;
   height: 5px;
-}</style>
+}
+</style>
