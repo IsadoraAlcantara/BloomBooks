@@ -305,7 +305,7 @@ onMounted(() => {
    right:1px;
   }
 .favorite-icon{
- margin-left: 260px;
+ margin-left: 310px;
  margin-top:25px;
   position:absolute;
   background-color: #bf5a5a;
