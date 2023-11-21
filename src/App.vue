@@ -7,6 +7,8 @@ import linkedin from 'vue-material-design-icons/Linkedin.vue'
 import ArrowRight from 'vue-material-design-icons/ArrowRight.vue'
 import ArrowLeft from 'vue-material-design-icons/ArrowLeft.vue'
 import Heart from 'vue-material-design-icons/Heart.vue'
+import { ref, onMounted } from 'vue'
+import api from './plugins/axios'
 import { ref, onMounted, computed } from 'vue';
 
 //import { useWindowSize } from '@vueuse/core'
@@ -15,6 +17,17 @@ import { ref, onMounted, computed } from 'vue';
 
 // const size = computed(() => Math.ceil(width.value * 0.015))
 //const size = computed(() => width.value > 1400 ? 28 : 20)
+const livros = ref([])
+
+onMounted(async () => {
+  let response = await api.get('')
+  moviesGenres.value = response.data.items
+  response =  await api.get('books/volume/list?language=pt-BR')
+  TVGenres.value = response.data.items
+})
+
+
+
 
 
 const images = ref([
@@ -305,7 +318,7 @@ onMounted(() => {
    right:1px;
   }
 .favorite-icon{
- margin-left: 310px;
+ margin-left: 370px;
  margin-top:25px;
   position:absolute;
   background-color: #bf5a5a;
