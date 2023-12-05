@@ -1,11 +1,25 @@
 <script>
+//import api from '../plugins/axios'
+//import { ref } from 'vue'
+//const teste = ref([])
 
-
+//export default {
+  //data() {
+   // return {
+     // authors: []
+  //  }
+ // },
+ // async created() {
+   // const response = await api.get('https://gutendex.com/books/')
+   // teste.value = response.data
+ // console.log('teste:' + teste.value)
+//  }
+//}
 </script>
 
 <template>
    <div class="card-geral">
-    <div>
+   
       <div class="card">
     <div class="row">
       <div class="col-4">
@@ -48,7 +62,8 @@
     </div>
   </div>
 
-</div></div>
+</div>
+
 
         
      
@@ -58,10 +73,17 @@
 </template>
 
 <style scoped>
+.card-geral{
+  flex-wrap: wrap;
+  justify-content: space-between;
+  display: flex;
+  margin-right:70px;
+  margin-left: 30px;
+}
 
 .row{
     display: flex;
-    
+  
 
 }
 
@@ -116,7 +138,7 @@ border: 1px solid #f1d6db;
  
   width: 580px;
 height: 230px;
-display: flex;
+
 }
 
 .col-4, .col-8 {

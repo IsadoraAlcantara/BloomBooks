@@ -50,7 +50,7 @@ onMounted(async () => {
 
 // const size = computed(() => Math.ceil(width.value * 0.015))
 //const size = computed(() => width.value > 1400 ? 28 : 20)
-const livros = ref([])
+
 
 // onMounted(async () => {
 //   let response = await api.get('')
