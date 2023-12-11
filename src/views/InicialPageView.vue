@@ -6,6 +6,9 @@ import Heart from 'vue-material-design-icons/Heart.vue'
 import { ref, onMounted } from 'vue'
 import api from '../plugins/axios'
 
+import ScrollBar from '../components/InicialPageComponents/ScrollBarComponent.vue'
+import CarrosselComponent from '../components/InicialPageComponents/CarrosselComponent.vue'
+
 const load = ref(false)
 const i = ref(0)
 const animRow = ref(true)
@@ -74,45 +77,10 @@ const nextSlide = () => {
 </script>
 
 <template>
-  <div class="LadoForm">
-    <div class="Carrossel">
-      <div
-        class="Slide"
-        v-for="(image, index) in images"
-        :key="index"
-        :class="{ active: index === currentIndex }"
-      >
-        <img class="ImgC" :src="image" alt="Carrossel Image" />
-      </div>
-      <div class="titulo">
-        <p>BloomBooks</p>
-      </div>
 
-      <div class="search">
-        <div class="search-bar">
-          <input
-            type="text"
-            v-model="search"
-            placeholder="Find Something..."
-            class="search-input"
-          />
-          <magnify size="22" class="search-button" />
-        </div>
-      </div>
-
-      <div class="Indicators">
-        <span
-          v-for="(image, index) in images"
-          :key="index"
-          class="indicator"
-          :class="{ active: index === currentIndex }"
-          @click="goToSlide(index)"
-        ></span>
-      </div>
-
-      <arrow-right size="32" class="arrow-icon" />
-    </div>
-  </div>
+  <!-- componente carrossel -->
+  <CarrosselComponent />
+  
   <div class="title-line">
     <p class="title-card">Populares</p>
     <div class="decoration-line"></div>
@@ -154,9 +122,8 @@ const nextSlide = () => {
 
     <arrow-right @click="acresentar" size="32" class="arrow-icon-card" />
   </div>
-  <div class="scroll-bar">
-    <div class="scroll-thumb" :style="{ left: scrollPosition + '%' }"></div>
-  </div>
+
+  <ScrollBar />
 
   <div class="title-line">
     <p class="title-card">Favoritos</p>
@@ -198,9 +165,8 @@ const nextSlide = () => {
 
     <arrow-right @click="acresentar" size="32" class="arrow-icon-card" />
   </div>
-  <div class="scroll-bar">
-    <div class="scroll-thumb" :style="{ left: scrollPosition + '%' }"></div>
-  </div>
+
+<ScrollBar />
 
 
 </template>
@@ -227,21 +193,7 @@ const nextSlide = () => {
   background-color: #bf5a5a;
   border-radius: 50%;
 }
-.scroll-bar {
-  position: relative;
-  width: 100%;
-  height: 15px;
-  background: #eee2e4;
-  margin-bottom: 80px;
-}
-.scroll-thumb {
-  position: absolute;
-  top: 0;
-  width: 33%;
-  height: 100%;
-  background: #da9b9b;
-  border-radius: 25px;
-}
+
 
 .arrow-icon-card {
   margin-top: 280px;
@@ -261,6 +213,15 @@ const nextSlide = () => {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.decoration-line {
+  width: 842.087px;
+  height: 1px;
+  flex-grow: 1;
+  background: #bf5a5a;
+  margin-left: 60px;
+  margin-top: 24px;
 }
 
 .review-star {
@@ -458,59 +419,4 @@ a {
   /* padding: 1.3vh 0 0 1.3vh; */
 }
 
-.Carrossel {
-  position: relative;
-  width: 97vw;
-  height: 80vh;
-  overflow: hidden;
-  margin: 60px 70px 60px 24px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.Slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.Slide.active {
-  opacity: 1;
-}
-
-.ImgC {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 3vh;
-}
-
-.Indicators {
-  position: absolute;
-  margin-right: 1490px;
-  bottom: 50px;
-
-  transform: translateX(-50%);
-  display: flex;
-  gap: 5px;
-}
-
-.indicator {
-  width: 10px;
-  height: 5px;
-  border-radius: 25%;
-  background-color: #f2e8df;
-  cursor: pointer;
-}
-
-.indicator.active {
-  background-color: #f2e8df;
-  width: 30px;
-  height: 5px;
-}
 </style>

@@ -1,9 +1,12 @@
-<script>
+<script setup>
+import CarrosselComponent from '../components/InicialPageComponents/CarrosselComponent.vue'
+
 </script>
 
 <template>
-    <p>Livros
-    </p>
+    <div>
+        <CarrosselComponent />
+    </div>
 </template>
 
 <style scoped>
