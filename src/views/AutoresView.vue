@@ -18,8 +18,10 @@
 </script>
 
 <template>
+
    <div class="card-geral">
    
+    <div v-for="index in 5" :key="index">
       <div class="card">
     <div class="row">
       <div class="col-4">
@@ -40,6 +42,8 @@
       </div>
     </div>
   </div>
+  </div>
+  
 
   <div class="card">
     <div class="row">
