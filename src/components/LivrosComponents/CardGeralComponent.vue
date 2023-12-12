@@ -1,26 +1,31 @@
 <script setup>
+// icons
 import ArrowRight from 'vue-material-design-icons/ArrowRight.vue'
 import ArrowLeft from 'vue-material-design-icons/ArrowLeft.vue'
-import Heart from 'vue-material-design-icons/Heart.vue'
+import Heart from 'vue-material-design-icons/Heart.vue' 
+
 import { ref, onMounted } from 'vue'
 import api from '../../plugins/axios'
+
+import ContadorComponent from '@/components/ContadorComponent.vue'
+
 
 const load = ref(false)
 const i = ref(0)
 const animRow = ref(true)
 
-const teste = ref([])
+const apiIntegracao = ref([])
 
 function decrementar() {
   if (i.value == 0) {
-    i.value = teste.value.results.length - 1
+    i.value = apiIntegracao.value.results.length - 1
   } else {
     i.value = i.value - 1
   }
 }
 
 function acresentar() {
-  if (i.value == teste.value.results.length - 1) {
+  if (i.value == apiIntegracao.value.results.length - 1) {
     i.value = 0
   } else {
     i.value = i.value + 1
@@ -30,82 +35,45 @@ function acresentar() {
 
 onMounted(async () => {
   const response = await api.get('https://gutendex.com/books/')
-  teste.value = response.data
-  console.log('teste:' + teste.value)
+  apiIntegracao.value = response.data
+  console.log('teste:' + apiIntegracao.value)
   setInterval(() => {
     load.value = true
   }, 2000)
-  setInterval(() => {
-    nextSlide()
-  }, 2000)
 })
-//import { useWindowSize } from '@vueuse/core'
-
-//const { width } = useWindowSize()
-
-// const size = computed(() => Math.ceil(width.value * 0.015))
-//const size = computed(() => width.value > 1400 ? 28 : 20)
-
-
-// onMounted(async () => {
-//   let response = await api.get('')
-//   moviesGenres.value = response.data.items
-//   response =  await api.get('books/volume/list?language=pt-BR')
-//   TVGenres.value = response.data.items
-// })
-
-const images = ref([
-  'https://i.pinimg.com/564x/81/b4/1b/81b41bf0249a52da787cb0b26f08214d.jpg',
-  'https://i.pinimg.com/564x/db/db/0f/dbdb0f73f16b2b7579e7189d30d4568b.jpg',
-  'https://i.pinimg.com/564x/fa/95/f4/fa95f40d078d5e444348f631a25f24f6.jpg',
-  'https://i.pinimg.com/564x/ce/a6/82/cea68267c3294713623da43dbf9aea7b.jpg'
-])
-
-const currentIndex = ref(0)
-
-const goToSlide = (index) => {
-  currentIndex.value = index++
-}
-
-const nextSlide = () => {
-  currentIndex.value = currentIndex.value === images.value.length - 1 ? 0 : currentIndex.value + 1
-}
 </script>
 <template>
 
-
-      <div v-if="load" class="card-geral">
+  <div v-if="load" class="card-geral">
     <arrow-left size="32" class="arrow-icon-card" @click="decrementar" />
 
     <div v-for="index in 3" :key="index">
-      
-        <div v-if="animRow" class="book-card">
-          <div class="book-cover">
-            <div class="favorite-icon">
-              <heart size="22" class="heart-icon" />
-            </div>
-            <img
-              class="img-card"
-              src="https://i.pinimg.com/564x/81/b4/1b/81b41bf0249a52da787cb0b26f08214d.jpg"
-              alt="Capa do livro"
-            />
+      <div v-if="animRow" class="book-card">
+        <div class="book-cover">
+          <div class="favorite-icon">
+            <heart size="22" class="heart-icon" />
           </div>
-
-          <div class="book-info">
-            <h2 class="book-title">{{ teste.results[i + (index - 1)].title }}</h2>
-            <p class="book-author">{{ teste.results[i + (index - 1)].authors[0].name }}</p>
-            <div class="book-rating">
-              <p class="review-star">2 reviews</p>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">☆</span>
-              <span class="star">☆</span>
-            </div>
-            <p class="book-date">22/12/2022</p>
-          </div>
+          <img
+            class="img-card"
+            src="https://i.pinimg.com/564x/81/b4/1b/81b41bf0249a52da787cb0b26f08214d.jpg"
+            alt="Capa do livro"
+          />
         </div>
-     
+
+        <div class="book-info">
+          <h2 class="book-title">{{ apiIntegracao.results[i + (index - 1)].title }}</h2>
+          <p class="book-author">{{ apiIntegracao.results[i + (index - 1)].authors[0].name }}</p>
+          <div class="book-rating">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">☆</span>
+            <span class="star">☆</span>
+          </div>
+          <ContadorComponent />
+          <p class="book-date">22/12/2022</p>
+        </div>
+      </div>
     </div>
 
     <arrow-right @click="acresentar" size="32" class="arrow-icon-card" />
@@ -213,6 +181,4 @@ const nextSlide = () => {
   background-color: #bf5a5a;
   border-radius: 50%;
 }
-
-
 </style>

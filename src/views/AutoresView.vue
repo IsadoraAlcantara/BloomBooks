@@ -1,20 +1,4 @@
 <script>
-//import api from '../plugins/axios'
-//import { ref } from 'vue'
-//const teste = ref([])
-
-//export default {
-  //data() {
-   // return {
-     // authors: []
-  //  }
- // },
- // async created() {
-   // const response = await api.get('https://gutendex.com/books/')
-   // teste.value = response.data
- // console.log('teste:' + teste.value)
-//  }
-//}
 </script>
 
 <template>
@@ -115,15 +99,12 @@ border-radius: 45.197px;
 
 
 .livro-titulo{
-    color: #BF5A5A;
+    color: rgb(77, 77, 77);
 margin-top: 10px;
 font-family: poppins;
 font-size: 24px;
 font-style: normal;
 font-weight: 600;
-
-
-
 }
 
 .img-card{
