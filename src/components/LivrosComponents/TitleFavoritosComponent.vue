@@ -12,24 +12,28 @@
   display: flex;
 }
 
+
+
+.decoration-line {
+  width: 105.26vw;
+  height: 0.125vh;
+  flex-grow: 1;
+  background: #bf5a5a;
+  margin-left: 7.5vw;
+  margin-top: 3vh;
+}
+
+
 .title-card {
-  margin-left: 56px;
+  margin-left: 7vw;
   color: #bf5a5a;
-  margin-bottom: 10px;
+  margin-bottom: 1.25vh;
   font-family: Poppins;
-  font-size: 32px;
+  font-size: 2vw;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
 
-.decoration-line {
-  width: 842.087px;
-  height: 1px;
-  flex-grow: 1;
-  background: #bf5a5a;
-  margin-left: 60px;
-  margin-top: 24px;
-}
 
 </style>

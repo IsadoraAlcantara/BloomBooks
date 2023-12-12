@@ -34,12 +34,12 @@ import linkedin from 'vue-material-design-icons/Linkedin.vue'
 </template>
 <style scoped>
 .frase-footer {
-  margin-top: 10px;
+  margin-top: 2vw;
   color: rgba(255, 255, 255, 0.5);
 
   text-align: center;
   font-family: Poppins;
-  font-size: 20px;
+  font-size: 1.4vw;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
@@ -50,53 +50,53 @@ import linkedin from 'vue-material-design-icons/Linkedin.vue'
 
   text-align: center;
   font-family: Poppins;
-  font-size: 20px;
+  font-size: 1.4vw;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
-  margin-bottom: 40px;
+  margin-bottom: 2vw;
 }
 
 .footer {
-  margin-top: 100px;
+  margin-top: 6vw;
   background-color: #bf5a5a;
   color: white;
-  padding: 10px;
+  padding: 0.2vw;
   text-align: center;
 }
 
 .logo {
-  margin: 20px;
+  margin: 3vw;
 }
 
 .logo-footer {
-  width: 183.389px;
-  height: 65px;
-  margin-top: 20px;
+  width: 14vw;
+  height: 10vh;
+  margin-top: 1vw;
 }
 
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 60px;
-  margin-top: 10px;
+  gap: 1vw;
+  margin-bottom: 5vw;
+  margin-top: 1vw;
   display: inline-flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 1vw;
 }
 
 .footer-links  {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 30px;
-  padding-top: 10px;
+  gap: 0.3vw;
+  margin-bottom: 2vw;
+ 
   display: inline-flex;
   align-items: flex-start;
-  gap: 100px;
+  gap: 8vw;
   font-family: Poppins;
-  font-size: 16px;
+  font-size: 2vh;
   font-style: normal;
   font-weight: 500;
   line-height: 120%;
@@ -108,18 +108,18 @@ import linkedin from 'vue-material-design-icons/Linkedin.vue'
 }
 
 .decoration-line {
-  width: 842.087px;
-  height: 1px;
+  width: 140vw;
+  height: 0.1vh;
   flex-grow: 1;
   background: #bf5a5a;
-  margin-left: 60px;
-  margin-top: 24px;
+  margin-left: 6vw;
+  margin-top: 1vw;
 }
 
 .decoration-line-footer {
-  width: 5000px;
-  margin-bottom: 20px;
-  height: 1px;
+  width: 50vw;
+  margin-bottom: 2vw;
+  height: 0.1vh;
   flex-grow: 1;
   background: #ffffff;
   width: 100%;

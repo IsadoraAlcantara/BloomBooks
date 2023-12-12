@@ -65,8 +65,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
   display: flex;
-  margin-right:70px;
-  margin-left: 30px;
+  margin-right:2vw;
+  margin-left: 2vw;
 }
 
 .row{
@@ -79,14 +79,14 @@
     color: #BF5A5A;
 position: absolute;
 font-family: poppins;
-font-size: 16px;
+font-size: 1vw;
 
 }
 .autor{
     color: #BF5A5A;
 
 font-family: poppins;
-font-size: 16px;
+font-size: 1.6vw;
 margin-bottom: 80px;
 }
 .img-autor{

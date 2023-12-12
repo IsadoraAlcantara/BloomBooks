@@ -80,6 +80,56 @@ onMounted(async () => {
   </div>
 </template>
 <style scoped>
+.heart-icon {
+  color: white;
+  margin-top: 0.6vw;
+  right: 1vw;
+}
+.favorite-icon {
+  margin-left: 21vw;
+  margin-top: 1vw;
+  position: absolute;
+  background-color: #bf5a5a;
+  border-radius: 50%;
+  width: 2.5vw;
+  height: 5.2vh;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #bf5a5a;
+  border-radius: 50%;
+}
+<<<<<<< HEAD
+</style>
+=======
+
+
+.arrow-icon-card {
+  margin-top: 35vh;
+  color: #bf5a5a;
+}
+
+.review-star {
+  color: #696969;
+
+  font-family: Poppins;
+  font-size: 1vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  margin-left: 24vh;
+  margin-top: 2.7vh;
+}
+
+.wrap-header {
+  width: 10%;
+  display: flex;
+  flex-direction: row;
+}
+
 .card-geral {
   display: flex;
   justify-content: space-around;
@@ -90,95 +140,69 @@ onMounted(async () => {
 }
 
 .img-card {
-  width: 350px;
-  height: 257px;
+  width: 35vw;
+  height: 35vh;
   object-fit: cover;
 }
 
 .book-card {
-  margin: 50px;
-  height: 507px;
-  width: 350px;
-  border: 1px solid #f1dce0;
-  border-radius: 10px;
+  margin: 3vw;
+  height: 72vh;
+  width: 25vw;
+  border: 0.2vh solid #f1dce0;
+  border-radius: 1vw;
   overflow: hidden;
-  margin-bottom: 40px;
+  margin-bottom: 6vw;
 }
 
 .book-info {
-  padding: 10px;
+  padding: 1vw;
 }
 
 .book-title {
-  margin-top: 5px;
-  margin-left: 20px;
-  margin-bottom: 0;
+  margin-top: 0.3vh;
+  margin-left: 1.5vw;
   color: #111;
   font-family: Poppins;
-  font-size: 22px;
+  font-size: 3.2vh;
 }
 
 .book-author {
-  margin-top: 0;
   color: #696969;
-  margin-left: 20px;
+  margin-left: 1.4vw;
   font-family: Poppins;
-  font-size: 16px;
+  font-size: 2.2vh;
 }
 
 .book-rating {
-  margin-top: 10px;
-
-  size: 100px;
-  margin-left: 17px;
+  margin-top: 1.3vh;
+  margin-left: 2vh;
 }
 
 .star {
   color: #ffd748;
-  font-size: 35px;
+  font-size: 2.6vw;
 }
 
 .book-date {
   color: #000;
   font-family: Poppins;
-  font-size: 16px;
+  font-size: 2.5vh;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   display: inline-flex;
-  padding: 12px 13px;
+  padding: 1.8vh 2.5vh;
   align-items: center;
-  gap: 14px;
-  border-radius: 12px;
-  border: 1px solid #ecbac4;
-  margin-left: 17px;
-  margin-top: 20px;
+  gap: 4vh;
+  border-radius: 0.8vw;
+  border: 0.1vh solid #ecbac4;
+  margin-left: 3vh;
+  margin-top: 1.8vw;
 }
 
-.arrow-icon-card {
-  margin-top: 280px;
-  color: #bf5a5a;
-}
 
-.heart-icon {
-  color: white;
-  margin-top: 6px;
-  right: 1px;
-}
-.favorite-icon {
-  margin-left: 280px;
-  margin-top: 25px;
-  position: absolute;
-  background-color: #bf5a5a;
-  border-radius: 50%;
-  width: 38px;
-  height: 38px;
-  color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-color: #bf5a5a;
-  border-radius: 50%;
-}
+
+
 </style>
+>>>>>>> 620b9f4f255554e6ab884a89576523bb4ddf602b

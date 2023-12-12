@@ -9,9 +9,9 @@
 .scroll-bar {
   position: relative;
   width: 100%;
-  height: 15px;
+  height: 2vh;
   background: #eee2e4;
-  margin-bottom: 80px;
+  margin-bottom: 5vw;
 }
 .scroll-thumb {
   position: absolute;
@@ -19,6 +19,6 @@
   width: 33%;
   height: 100%;
   background: #da9b9b;
-  border-radius: 25px;
+  border-radius: 2vw;
 }
 </style> 
