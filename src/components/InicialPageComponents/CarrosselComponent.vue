@@ -74,7 +74,7 @@ onMounted(() => {
   width: 97vw;
   height: 80vh;
   overflow: hidden;
-  margin: 60px 70px 60px 24px;
+  margin: 4vw 5vw 4vw 2vw;
   align-items: center;
   display: flex;
   justify-content: center;
@@ -106,43 +106,43 @@ input::placeholder {
 }
 
 .search {
-  margin-right: 400px;
+  margin-right: 60vh;
 }
 
 .search-bar {
   display: flex;
   align-items: center;
-  border-radius: 25px;
-  padding: 10px;
-  margin-top: 100px;
+  border-radius: 3vw;
+  padding: 0.8vw;
+  margin-top: 8vw;
   color: white;
-  border: 1px solid white;
+  border: 0.1vw solid white;
   position: absolute;
   text-decoration: none;
 }
 
 .search-input {
   flex-grow: 1;
-  margin-left: 30px;
-  margin-right: 180px;
+  margin-left: 2vw;
+  margin-right: 15vw;
   font-family: poppins;
   background-color: transparent;
 }
 
 .search-button {
-  border-radius: 25px;
+ 
   color: #ffffff;
   cursor: pointer;
   position: absolute;
   text-decoration: none;
-  margin-top: 5px;
+  margin-top: 0.6vh;
 }
 
 
 .titulo {
   color: #bf5a5a;
   font-family: 'Pinyon Script', cursive;
-  font-size: 200px;
+  font-size: 16vw;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
