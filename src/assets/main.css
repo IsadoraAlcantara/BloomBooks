@@ -10,3 +10,21 @@
 body{
   background-color: #FAF6F3;
 }
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: none; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: rgba(119, 119, 119, 0.733); 
+  border-radius: 2vh;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(88, 88, 88, 0.733); 
+}

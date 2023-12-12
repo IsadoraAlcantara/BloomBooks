@@ -48,7 +48,7 @@ onMounted(() => {
           <input
             type="text"
             v-model="search"
-            placeholder="Find Something..."
+            placeholder="Pesquisar por..."
             class="search-input"
           />
           <Magnify size="22" class="search-button" />

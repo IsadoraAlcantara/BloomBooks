@@ -2,48 +2,49 @@
 // icons
 import ArrowRight from 'vue-material-design-icons/ArrowRight.vue'
 import ArrowLeft from 'vue-material-design-icons/ArrowLeft.vue'
-import Heart from 'vue-material-design-icons/Heart.vue' 
+import Heart from 'vue-material-design-icons/Heart.vue'
+import StarOutline from 'vue-material-design-icons/StarOutline.vue'
 
 import { ref, onMounted } from 'vue'
-import api from '../../plugins/axios'
+// import api from '../../plugins/axios'
 
-import ContadorComponent from '@/components/ContadorComponent.vue'
+import useBooksStore from '../../stores/apiCards'
 
+const bookStore = useBooksStore()
+onMounted(async () => {
+  await bookStore.getAllBooks()
+  setInterval(() => {
+    load.value = true
+  }, 2000)
+})
+
+console.log(` Books store: ${bookStore}`)
 
 const load = ref(false)
 const i = ref(0)
 const animRow = ref(true)
 
-const apiIntegracao = ref([])
+// const apiIntegracao = ref([])
 
 function decrementar() {
   if (i.value == 0) {
-    i.value = apiIntegracao.value.results.length - 1
+    i.value = bookStore.apiIntegracao.length - 1
   } else {
     i.value = i.value - 1
   }
 }
 
 function acresentar() {
-  if (i.value == apiIntegracao.value.results.length - 1) {
+  if (i.value == bookStore.apiIntegracao.length - 1) {
     i.value = 0
   } else {
     i.value = i.value + 1
   }
   console.log(i)
 }
-
-onMounted(async () => {
-  const response = await api.get('https://gutendex.com/books/')
-  apiIntegracao.value = response.data
-  console.log('teste:' + apiIntegracao.value)
-  setInterval(() => {
-    load.value = true
-  }, 2000)
-})
 </script>
 <template>
-
+  <!-- {{ bookStore.books[0].title }} -->
   <div v-if="load" class="card-geral">
     <arrow-left size="32" class="arrow-icon-card" @click="decrementar" />
 
@@ -61,16 +62,16 @@ onMounted(async () => {
         </div>
 
         <div class="book-info">
-          <h2 class="book-title">{{ apiIntegracao.results[i + (index - 1)].title }}</h2>
-          <p class="book-author">{{ apiIntegracao.results[i + (index - 1)].authors[0].name }}</p>
-          <div class="book-rating">
-            <span class="star">★</span>
-            <span class="star">★</span>
-            <span class="star">★</span>
-            <span class="star">☆</span>
-            <span class="star">☆</span>
+          <h2 class="book-title">{{ bookStore.apiIntegracao[i + (index - 1)].title }}</h2>
+          <p class="book-author">{{ bookStore.apiIntegracao[i + (index - 1)].authors[0].name }}</p>
+          <div class="estrelas">
+            <p class="first-star"><StarOutline /></p>
+            <p class="star"><StarOutline /></p>
+            <p class="star"><StarOutline /></p>
+            <p class="star"><StarOutline /></p>
+            <p class="star"><StarOutline /></p>
           </div>
-          <ContadorComponent />
+
           <p class="book-date">22/12/2022</p>
         </div>
       </div>
@@ -101,10 +102,6 @@ onMounted(async () => {
   background-color: #bf5a5a;
   border-radius: 50%;
 }
-<<<<<<< HEAD
-</style>
-=======
-
 
 .arrow-icon-card {
   margin-top: 35vh;
@@ -184,6 +181,16 @@ onMounted(async () => {
   font-size: 2.6vw;
 }
 
+.first-star {
+  color: #ffd748;
+  font-size: 2.6vw;
+  margin: 0 0 0 1.2vw;
+}
+
+.estrelas {
+  display: flex;
+}
+
 .book-date {
   color: #000;
   font-family: Poppins;
@@ -200,9 +207,4 @@ onMounted(async () => {
   margin-left: 3vh;
   margin-top: 1.8vw;
 }
-
-
-
-
 </style>
->>>>>>> 620b9f4f255554e6ab884a89576523bb4ddf602b

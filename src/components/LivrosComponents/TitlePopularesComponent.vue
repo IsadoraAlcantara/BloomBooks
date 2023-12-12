@@ -10,6 +10,7 @@
 <style scoped>
 .title-line {
   display: flex;
+  margin: 2vw 0 0 0;
 }
 
 .title-card {
