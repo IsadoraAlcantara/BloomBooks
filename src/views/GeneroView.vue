@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <p>Ge
+    <p>Gênero
     </p>
 </template>
 

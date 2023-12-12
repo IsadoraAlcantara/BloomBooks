@@ -5,7 +5,7 @@
 </script>
 
 <template>
- <h1>oi</h1>
+    <p>Categorias</p>
 </template>
 
 <style scoped>
